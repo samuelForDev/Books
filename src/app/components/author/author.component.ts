@@ -3,6 +3,7 @@ import {Author} from "../../models/author";
 import {AuthorService} from "../../services/author.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {catchError, of} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-author',
@@ -16,7 +17,8 @@ export class AuthorComponent implements OnInit {
 
   constructor(
     private authorService: AuthorService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.authorForm = this.formBuilder.group({
       authorName: ['', Validators.required]
@@ -25,6 +27,10 @@ export class AuthorComponent implements OnInit {
 
   ngOnInit() {
     this.getAuthors();
+  }
+
+  redirectToBooks(): void {
+    this.router.navigate(['/books'])
   }
 
   getAuthors(): void {

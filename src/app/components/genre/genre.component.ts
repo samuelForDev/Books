@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Genre} from "../../models/genre";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GenreService} from "../../services/genre.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-genre',
@@ -14,7 +15,8 @@ export class GenreComponent implements OnInit {
   genreForm: FormGroup;
   constructor(
     private genreService: GenreService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.genreForm = this.formBuilder.group({
       genreName: ['', Validators.required]
@@ -23,7 +25,9 @@ export class GenreComponent implements OnInit {
   ngOnInit() {
     this.getGenres();
   }
-
+  redirectToBooks(): void {
+    this.router.navigate(['/books'])
+  }
   getGenres(): void {
     this.genreService.getAllGenres()
       .subscribe(genres => this.genres = genres);
