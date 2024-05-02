@@ -1,0 +1,48 @@
+<div class="container">
+  <h2 class="text-center">CRUD Books</h2>
+
+  <div class="container">
+    <h3>Add new Book</h3>
+    <form id="crudBooks">
+      <div class="form-group">
+        <label for="bookName">Book Name:</label>
+        <input type="text" class="form-control" id="bookName" placeholder="Type Book name" required>
+      </div>
+      <div class="form-group">
+        <label for="pages">Number of pages:</label>
+        <input type="text" class="form-control" id="pages" placeholder="Type a number of pages" required>
+      </div>
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" id="author" placeholder="Type an author name" required>
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" class="form-control" id="genre" placeholder="Type a genre" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Book</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <h3>List books</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Book name</th>
+        <th>Pages</th>
+        <th>Author</th>
+        <th>Genre</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.bookName }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.genre }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
