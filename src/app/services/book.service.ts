@@ -9,26 +9,28 @@ import { Books, Book, CreateBook } from "../models/Book"
 })
 export class BookService {
 
+  baseUrl = environment.api.url + 'book';
+
   constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<Books[]> {
-    return this.http.get<Books[]>(environment.api.url);
+    return this.http.get<Books[]>(this.baseUrl);
   }
 
   getBookById(id: string): Observable<Book> {
-    return this.http.get<Book>(`${environment.api.url}/${id}`);
+    return this.http.get<Book>(`${this.baseUrl}/${id}`);
   }
 
   createBook(bookData: CreateBook): Observable<Book>{
-    return this.http.post<Book>(environment.api.url, bookData);
+    return this.http.post<Book>(this.baseUrl, bookData);
   }
 
   updateBook(id: string, bookData: CreateBook): Observable<Book> {
-    return this.http.put<Book>(`${environment.api.url}/${id}`, bookData);
+    return this.http.put<Book>(`${this.baseUrl}/${id}`, bookData);
   }
 
   deleteBook(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.api.url}/${id}`);
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
 }
