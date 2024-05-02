@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AuthorComponent } from './components/author/author.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { GenreComponent } from './components/genre/genre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
-    AuthorComponent
+    AuthorComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

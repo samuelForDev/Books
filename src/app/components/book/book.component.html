@@ -3,22 +3,26 @@
 
   <div class="container">
     <h3>Add new Book</h3>
-    <form id="crudBooks">
+    <form [formGroup]="bookForm" id="crudBooks" (ngSubmit)="createBook()">
       <div class="form-group">
         <label for="bookName">Book Name:</label>
-        <input type="text" class="form-control" id="bookName" placeholder="Type Book name" required>
+        <input type="text" class="form-control" id="bookName" placeholder="Type Book name" required formControlName="bookName">
       </div>
       <div class="form-group">
         <label for="pages">Number of pages:</label>
-        <input type="text" class="form-control" id="pages" placeholder="Type a number of pages" required>
+        <input type="text" class="form-control" id="pages" placeholder="Type a number of pages" required formControlName="pages">
       </div>
       <div class="form-group">
         <label for="author">Author:</label>
-        <input type="text" class="form-control" id="author" placeholder="Type an author name" required>
+        <select class="form-control" id="author" formControlName="author" required>
+          <option *ngFor="let author of authors" [ngValue]="author">{{ author.authorName }}</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="genre">Genre:</label>
-        <input type="text" class="form-control" id="genre" placeholder="Type a genre" required>
+        <select class="form-control" id="genre" formControlName="genre" required>
+          <option *ngFor="let genre of genres" [ngValue]="genre">{{ genre.genreName }}</option>
+        </select>
       </div>
       <button type="submit" class="btn btn-primary">Add Book</button>
     </form>
@@ -30,6 +34,7 @@
       <thead>
       <tr>
         <th>Book name</th>
+        <th>ISNB</th>
         <th>Pages</th>
         <th>Author</th>
         <th>Genre</th>
@@ -38,6 +43,7 @@
       <tbody>
       <tr *ngFor="let book of books">
         <td>{{ book.bookName }}</td>
+        <td>{{ book.isnb }}</td>
         <td>{{ book.pages }}</td>
         <td>{{ book.author }}</td>
         <td>{{ book.genre }}</td>
@@ -45,4 +51,17 @@
       </tbody>
     </table>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <button class="btn btn-primary btn-block" (click)="redirectToAuthors()">Authors</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary btn-block" (click)="redirectToGenre()">Genres</button>
+      </div>
+    </div>
+  </div>
+
+
 </div>
