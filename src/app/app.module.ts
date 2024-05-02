@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AuthorComponent } from './components/author/author.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GenreComponent } from './components/genre/genre.component';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { GenreComponent } from './components/genre/genre.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

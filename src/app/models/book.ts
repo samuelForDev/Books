@@ -1,6 +1,7 @@
 export interface Books {
   idBook: string,
   bookName: string,
+  isnb: string,
   pages: string,
   author: string,
   genre: string
