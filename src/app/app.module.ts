@@ -8,13 +8,15 @@ import {HttpClientModule} from "@angular/common/http";
 import { AuthorComponent } from './components/author/author.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GenreComponent } from './components/genre/genre.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     AuthorComponent,
-    GenreComponent
+    GenreComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

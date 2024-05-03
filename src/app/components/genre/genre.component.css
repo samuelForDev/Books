@@ -1,0 +1,55 @@
+.custom-crud {
+  margin-top: 50px;
+}
+
+.custom-crud .container {
+  background-color: #f5f6f6;
+  padding: 20px 0 20px 5px;
+  border-radius: 10px;
+}
+
+.custom-crud .h2 {
+  margin-bottom: 30px;
+}
+
+.custom-crud .h3 {
+  margin-bottom: 20px;
+}
+
+.custom-crud .form-group {
+  margin-bottom: 10px;
+}
+
+.custom-crud .table-container {
+  margin-left: 10px;
+}
+
+.custom-crud .table-container .table {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.custom-crud th {
+  font-weight: bold;
+  background-color: #343a40;
+  color: #fff;
+}
+
+.custom-crud td {
+  font-size: 16px;
+}
+
+.custom-btn {
+  padding-top: 1.5rem;
+}
+
+.custom-crud button[type="submit"] {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: black;
+}
+
+.custom-crud button[type="submit"]:hover {
+  background-color: #e5aa01;
+  border-color: #e5aa01;
+}

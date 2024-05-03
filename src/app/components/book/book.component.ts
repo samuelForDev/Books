@@ -42,14 +42,6 @@ export class BookComponent implements OnInit{
     this.getGenres();
   }
 
-  redirectToAuthors(): void {
-    this.router.navigate(['/authors']);
-  }
-
-  redirectToGenre(): void {
-    this.router.navigate(['/genres']);
-  }
-
   getAuthors(): void {
     this.authorService.getAllAuthor()
       .subscribe(authors => this.authors = authors);

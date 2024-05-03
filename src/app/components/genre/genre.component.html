@@ -1,40 +1,55 @@
-<div class="container">
-  <h2 class="text-center">CRUD Genres</h2>
-
+<div class="container custom-crud">
+  <p class="h2 text-center">CRUD Genres</p>
   <div class="container">
-    <form [formGroup]="genreForm" id="createGenre" (submit)="createGenres()">
-      <div class="form-group">
-        <label for="genreName">Genre Name:</label>
-        <input type="text"
-               class="form-control"
-               id="genreName"
-               placeholder="Type author name"
-               formControlName="genreName">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="container">
+          <p class="h3">Add new genre</p>
+          <form [formGroup]="genreForm" id="createGenre" (submit)="createGenres()">
+            <div class="form-group container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label for="genreName">Genre Name:</label>
+                </div>
+                <div class="col-lg-8">
+                  <input type="text"
+                         class="form-control"
+                         id="genreName"
+                         placeholder="Type author name"
+                         formControlName="genreName">
+                </div>
+              </div>
+              <div class="custom-btn">
+                <button type="submit" class="btn btn-primary">Add genre</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Add genre</button>
-    </form>
+      <div class="col-lg-8">
+        <div class="container table-container">
+          <p class="h3">List genres</p>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Genre name</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let genre of genres">
+              <td>{{ genre.idGenre }}</td>
+              <td>{{ genre.genreName }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="container">
-    <p class="h3">List genres</p>
-    <table class="table">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Genre name</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let genre of genres">
-        <td>{{ genre.idGenre }}</td>
-        <td>{{ genre.genreName }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="container">
-    <button class="btn btn-primary btn-block" (click)="redirectToBooks()">Books</button>
-  </div>
-
 </div>
