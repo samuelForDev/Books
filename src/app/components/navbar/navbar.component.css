@@ -1,0 +1,20 @@
+.navbar {
+  margin-bottom: 2.5rem;
+}
+
+.container-fluid {
+  margin-left: 5rem;
+}
+
+.container-fluid a {
+  padding-left: 4rem;
+  font-size: 1.3rem;
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffc107;
+}
