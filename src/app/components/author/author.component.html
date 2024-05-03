@@ -1,40 +1,58 @@
-<div class="container">
-  <h2 class="text-center">CRUD Authors</h2>
-
+<div class="container custom-crud">
+  <p class=" h2 text-center">CRUD Authors</p>
   <div class="container">
-    <form [formGroup]="authorForm" id="createAuthor" (submit)="createAuthor()">
-      <div class="form-group">
-        <label for="authorName">Author Name:</label>
-        <input type="text"
-               class="form-control"
-               id="authorName"
-               placeholder="Type author name"
-               formControlName="authorName">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="container">
+          <p class="h3">Add new author</p>
+          <form [formGroup]="authorForm" id="createAuthor" (submit)="createAuthor()">
+            <div class="form-group container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label for="authorName">Author Name:</label>
+                </div>
+                <div class="col-lg-8">
+                  <input type="text"
+                         class="form-control"
+                         id="authorName"
+                         placeholder="Type author name"
+                         formControlName="authorName">
+                </div>
+              </div>
+              <div class="custom-btn">
+                <button type="submit" class="btn btn-primary">Add author</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Add author</button>
-    </form>
+      <div class="col-lg-8">
+        <div class="container table-container">
+          <p class="h3">List author</p>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Author name</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let author of authors">
+              <td>{{ author.idAuthor }}</td>
+              <td>{{ author.authorName }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="container">
-    <p class="h3">List author</p>
-    <table class="table">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Author name</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let author of authors">
-        <td>{{ author.idAuthor }}</td>
-        <td>{{ author.authorName }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="container">
-    <button class="btn btn-primary btn-block" (click)="redirectToBooks()">Books</button>
-  </div>
-
 </div>
